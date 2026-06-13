@@ -98,7 +98,8 @@ configurado. En la siguiente imagen se puede observar el prototipo en funcionami
 la LCD despliega el mensaje "Configura alarma" en la primera línea y la hora actual 
 "11:26:32" en la segunda, evidenciando la correcta lectura del módulo RTC DS3231 y la 
 comunicación I2C con la pantalla:
-<img width="260" height="300" alt="image" src="https://github.com/user-attachments/assets/cd49315b-d90b-4947-b51e-89dacbb93e01" />
+
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/cd49315b-d90b-4947-b51e-89dacbb93e01" />
 
 ## Conclusiones
 La FSM implementada en Verilog permite gestionar de forma determinista la secuencia de 
