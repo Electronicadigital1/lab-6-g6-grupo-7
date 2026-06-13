@@ -80,10 +80,43 @@ El módulo top controla la secuencia completa de operación del LCD mediante 14 
 
 
 ## Implementación
+El diseño fue implementado en la tarjeta Altera Cyclone IV EP4CE6E22C8. Los pasos seguidos 
+fueron:
 
+1. Configuración del Pin Planner en Quartus según la tabla de pines de la tarjeta.
+2. Reasignación del pin 101 (nCEO) como I/O regular en Assignments → Device → 
+Device and Pin Options → Dual-Purpose Pins.
+3. Conexión de la pantalla LCD 16×2 al header correspondiente, alineando el pin 1 
+de la pantalla con el pin 1 marcado en la PCB.
+4. Programación de la tarjeta y verificación del funcionamiento.
+
+El sistema funcionó correctamente. La pantalla inicializó sin errores y mostró el mensaje 
+configurado. En la siguiente imagen se puede observar el prototipo en funcionamiento, donde 
+la LCD despliega el mensaje "Configura alarma" en la primera línea y la hora actual 
+"11:26:32" en la segunda, evidenciando la correcta lectura del módulo RTC DS3231 y la 
+comunicación I2C con la pantalla:
 
 ## Conclusiones
+La FSM implementada en Verilog permite gestionar de forma determinista la secuencia de 
+comandos requerida por el controlador HD44780, demostrando la ventaja del diseño en hardware 
+para aplicaciones con requisitos de temporización precisos.
 
+- El módulo i2c_send implementado desde cero en la FPGA verificó el funcionamiento correcto 
+del protocolo I2C, generando una frecuencia de reloj de aproximadamente 100 kHz compatible 
+con el modo estándar.
+
+- El modo de operación de 4 bits del LCD combinado con el adaptador PCF8574 reduce el 
+consumo de pines de la FPGA de 8 a 2, siendo una solución eficiente directamente aplicable 
+al proyecto del pastillero programable.
+
+- Los módulos desarrollados, en particular i2c_send y la lógica de control LCD, son 
+componentes reutilizables en el proyecto final del pastillero, donde la misma pantalla 
+comparte el bus I2C con el módulo RTC DS3231 para mostrar la hora actual y los mensajes 
+de alarma.
 
 ## Referencias
-
+- Hitachi Semiconductor. (2000). HD44780U Dot Matrix LCD Controller/Driver. Hitachi Ltd.
+- NXP Semiconductors. (2014). PCF8574 Remote 8-bit I/O expander for I2C-bus. NXP Semiconductors.
+- Eslava, S. (2025). Máquinas de estados finitos FSM [Diapositivas de clase]. Universidad Nacional de Colombia.
+- Eslava, S. (2025). Nivel de transferencia de datos RTL [Diapositivas de clase]. Universidad Nacional de Colombia.
+- Intel Corporation. (2020). Cyclone IV Device Handbook. Intel FPGA.
