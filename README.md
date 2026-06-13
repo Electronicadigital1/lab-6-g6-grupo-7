@@ -2,7 +2,10 @@
 <h1 align="center">Visualización usando pantalla LCD 16x2</h1>
 
 # Integrantes
-
+| Nombre |
+|---|
+| Gabriel Sebastián Barboza García |
+| Yuliani Estacio García |
 
 # Informe
 
