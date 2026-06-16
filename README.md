@@ -77,11 +77,6 @@ El módulo top controla la secuencia completa de operación del LCD mediante 14 
 | S13 | S_HOME2_WAIT | Espera done y reinicia el contador de shifts. |
 
 
-## Simulaciones 
-
-<!-- (Incluir las de Digital si hicieron uso de esta herramienta, pero también deben incluir simulaciones realizadas usando un simulador HDL como por ejemplo Icarus Verilog + GTKwave) -->
-
-
 ## Implementación
 El diseño fue implementado en la tarjeta Altera Cyclone IV EP4CE6E22C8. Los pasos seguidos 
 fueron:
